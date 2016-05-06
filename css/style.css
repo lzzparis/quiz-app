@@ -12,6 +12,12 @@ html{
 	margin:0rem;
 	padding:0rem;
 }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 
 body {
 	display: flex;
@@ -54,4 +60,19 @@ body {
 	letter-spacing: 0.3rem;
 	border-radius: 5px;
 	border: 0px;
+}
+
+.question {
+	font-size: 3rem;
+	background-color: rgba(212,238,248,0.85);
+	margin:0.3rem;
+	font-family: "Open Sans Condensed",sans-serif;
+	list-style-type: none;
+	border-radius: 10px;
+}
+
+.prompt {
+	font-family: Pacifico,cursive;
+	font-size:4em;
+	padding:0ems;
 }
