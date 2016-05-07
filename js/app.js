@@ -16,7 +16,9 @@ drawQuiz();
 //display first question
 $(".intro-start").click(function(){
 	//move intro offscreen
+	$("#intro").animate({left:'-50%'},500);
 	//move first question onscreen
+	$("#question-0").animate({left:'50%'},500);
 });
 
 //next question
@@ -95,7 +97,7 @@ quiz.push(thirdQ);
 
 function drawQuiz() {
 
-	$(".container").append("<section class=\"content intro carousel-item\" >"+
+	$(".container").append("<section id=\"intro\" class=\"carousel-item\" >"+
 		"<h1 class=\"intro-title\">know your fruit!</h1>"+
 		"<button class=\"intro-start\">start quiz</button>"+
 		"</section>");
@@ -110,7 +112,7 @@ function drawQuiz() {
 			console.log("q is "+q);
 		})
 	});
-	$(".container").append("<section class=\"scorecard carousel-item\">"+
+	$(".container").append("<section id=\"scorecard\" class=\"carousel-item\">"+
 		"<h2>you scored:</h2>"+
 		"<h3 class=\"scorecard-score\">0</h3>"+
 		"<button class=\"scorecard-restart\">play again?</button>"+
