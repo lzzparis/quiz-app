@@ -1,6 +1,11 @@
+//this has to be outside document ready so the click events listeners 
+//can access after docready executes
+var quiz = []; 
+var totalScore = 0;
+var whichQ = 0;
+
 $(document).ready(function(){
 
-var totalScore = 0;
 
 //init quiz
 var Question = {
@@ -30,7 +35,7 @@ secondQ.answerOptions= ["lksjdf;lajslgkjd;sj","lajksd;fjds;j;dsaj","laskjd;fjs;"
 thirdQ.questionText = "the third question";
 thirdQ.answerOptions= ["ta-da"];
 
-var quiz = [];
+
 
 quiz.push(firstQ);
 quiz.push(secondQ);
@@ -53,17 +58,21 @@ $(".intro-start").click(function(){
 	//move first question onscreen
 });
 
-//display next question
+//next question
 $("li").click(function(){
 	//score
+	quiz[whichQ].storeAndCompare(this.id);
 	//if last question, update totalScore scorecard
 	//move question offscreen
 	//move next onscreen
+	//increment question counter
+	// whichQ++;
+	console.log("ts"+totalScore);
 });
 
 //restart game
 $(".scorecard-restart").click(function(){
-	
+
 });
 
 

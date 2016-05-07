@@ -20,17 +20,17 @@ button:focus {
 }
 
 body {
-	display: flex;
 	justify-content: center;
 	align-content: center;
 }
 .content {
 	width:50%;
-	position: absolute;
+	margin:0 auto; /*temp*/
+/*	position: absolute;
 	top:50%;
 	left:50%;
 	transform: translate(-50%, -50%);
-	display:inline-block;
+	display:inline-block;*/
 /*	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -74,5 +74,5 @@ body {
 .prompt {
 	font-family: Pacifico,cursive;
 	font-size:4em;
-	padding:0ems;
+	padding:0em;
 }
