@@ -16,9 +16,9 @@ drawQuiz();
 //display first question
 $(".intro-start").click(function(){
 	//move intro offscreen
-	$("#intro").animate({left:'-50%'},500);
+	$(this).parents(".carousel-item").animate({left:'-50%'},500);
 	//move first question onscreen
-	$("#question-0").animate({left:'50%'},500);
+	$(this).parents(".carousel-item").next().animate({left:'50%'},500);
 });
 
 //next question
@@ -33,7 +33,10 @@ $("li").click(function(){
 		console.log("finished quiz");
 	}
 	//move question offscreen
+	//?? - Why do i need to use $(this) here and not for this.id??
+	$(this).parents(".carousel-item").animate({left:'-50%'},500);
 	//move next onscreen
+	$(this).parents(".carousel-item").next().animate({left:'50%'},500);
 	//increment question counter
 	whichQ++;
 	console.log("ts"+totalScore);
@@ -49,6 +52,9 @@ $(".scorecard-restart").click(function(){
 		quest.theirAnswer="";
 	});
 	$(".scorecard>h3").text(totalScore);
+
+	//rewind
+	$(this).parents(".carousel-item").prevAll().animate({left:'150%'},500);
 
 });
 
