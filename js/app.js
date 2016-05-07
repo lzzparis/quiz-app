@@ -17,7 +17,7 @@ var Question = {
 	storeAndCompare:function(input){
 		this.theirAnswer = input;
 		if(this.theirAnswer === this.correctAnswer){
-			score=1;
+			this.score=1;
 			totalScore++;
 		}
 	}
@@ -80,9 +80,16 @@ $("li").click(function(){
 //restart game
 $(".scorecard-restart").click(function(){
 
+	totalScore=0;
+	whichQ=0;
+	quiz.forEach(function(quest){
+		quest.score=0;
+		quest.theirAnswer="";
+	});
+	$(".scorecard>h3").text(totalScore);
+
 });
 
 
 
 });
-
