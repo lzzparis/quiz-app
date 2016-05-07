@@ -29,9 +29,10 @@ var thirdQ = Object.create(Question);
 
 firstQ.questionText = "banana";
 firstQ.answerOptions= ["yellow","red","blue"];
-firstQ.correctAnswer= "blue";
+firstQ.correctAnswer= "yellow";
 secondQ.questionText = "apple";
-secondQ.answerOptions= ["lksjdf;lajslgkjd;sj","lajksd;fjds;j;dsaj","laskjd;fjs;",";alskdjf;sjf"];
+secondQ.answerOptions= ["green","purple","blue","black"];
+secondQ.correctAnswer= "green";
 thirdQ.questionText = "the third question";
 thirdQ.answerOptions= ["ta-da"];
 
@@ -60,13 +61,19 @@ $(".intro-start").click(function(){
 
 //next question
 $("li").click(function(){
-	//score
-	quiz[whichQ].storeAndCompare(this.id);
+	//score if not out of questions 
+	if(whichQ < quiz.length){
+		quiz[whichQ].storeAndCompare(this.id);
+	}
 	//if last question, update totalScore scorecard
+	if(whichQ===quiz.length-1) {
+		$(".scorecard>h3").text(totalScore);
+		console.log("finished quiz");
+	}
 	//move question offscreen
 	//move next onscreen
 	//increment question counter
-	// whichQ++;
+	whichQ++;
 	console.log("ts"+totalScore);
 });
 
