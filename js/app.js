@@ -27,7 +27,7 @@ $("li").click(function(){
 	}
 	//if last question, update totalScore scorecard
 	if(whichQ===quiz.length-1) {
-		$(".scorecard>h3").text(totalScore);
+		$("#scorecard>h3").text(totalScore);
 	}
 	//move question offscreen
 	$(".carousel-item").each(function(){
@@ -89,9 +89,9 @@ var firstQ = Object.create(Question);
 var secondQ = Object.create(Question);
 var thirdQ = Object.create(Question);
 
-firstQ.questionText = "banana";
-firstQ.answerOptions= ["yellow","red","blue"];
-firstQ.correctAnswer= "yellow";
+firstQ.questionText = "grape";
+firstQ.answerOptions= ["yellow","vitus labrusca","blue"];
+firstQ.correctAnswer= firstQ.answerOptions[1];
 secondQ.questionText = "apple";
 secondQ.answerOptions= ["green","purple","blue","black"];
 secondQ.correctAnswer= "green";
