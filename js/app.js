@@ -89,7 +89,7 @@ var firstQ = Object.create(Question);
 var secondQ = Object.create(Question);
 var thirdQ = Object.create(Question);
 
-firstQ.questionText = "grape";
+firstQ.questionText = "vitus labrusca";
 firstQ.answerOptions= ["yellow","vitus labrusca","blue"];
 firstQ.correctAnswer= firstQ.answerOptions[1];
 secondQ.questionText = "apple";
@@ -108,7 +108,7 @@ quiz.push(thirdQ);
 
 function drawQuiz() {
 
-	$(".container").append("<section id=\"intro\" class=\"carousel-item\" >"+
+	$(".container").append("<section id=\"intro\" class=\"carousel-item card\" >"+
 		"<h1 class=\"intro-title\">know your fruit!</h1>"+
 		"<button class=\"intro-start\">start quiz</button>"+
 		"</section>");
@@ -123,7 +123,7 @@ function drawQuiz() {
 			console.log("q is "+q);
 		})
 	});
-	$(".container").append("<section id=\"scorecard\" class=\"carousel-item\">"+
+	$(".container").append("<section id=\"scorecard\" class=\"carousel-item card\">"+
 		"<h2>you scored:</h2>"+
 		"<h3 class=\"scorecard-score\">0</h3>"+
 		"<button class=\"scorecard-restart\">play again?</button>"+
