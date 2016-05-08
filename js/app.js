@@ -20,7 +20,7 @@ $(".intro-start").click(function(){
 });
 
 //next question
-$("li").click(function(){
+$(".answer").click(function(){
 	//score if not out of questions 
 	if(whichQ < quiz.length){
 		quiz[whichQ].storeAndCompare(this.id);
@@ -94,9 +94,9 @@ function drawQuiz() {
 		var questID = "question-"+q; 
 		$(".container").append("<ul id=\""+questID+"\" class=\"carousel-item\">");
 		$("#"+questID).append(
-			"<li class=\"question prompt\">"+quest.questionText+"</li>");
+			"<li class=\"prompt\">"+quest.questionText+"</li>");
 		quest.answerOptions.forEach(function (a){
-			$("#"+questID).append("<li id=\""+a+"\" class=\"question answer\">"+a+"</li>");
+			$("#"+questID).append("<li id=\""+a+"\" class=\"answer\">"+a+"</li>");
 			console.log("q is "+q);
 		})
 	});
