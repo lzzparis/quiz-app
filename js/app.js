@@ -27,7 +27,7 @@ $("li").click(function(){
 	}
 	//if last question, update totalScore scorecard
 	if(whichQ===quiz.length-1) {
-		$("#scorecard>h3").text(totalScore);
+		$("#scorecard>h3").text(totalScore+"/"+quiz.length);
 	}
 	//move question offscreen
 	$(".carousel-item").each(function(){
@@ -55,7 +55,6 @@ $(".scorecard-restart").click(function(){
 	$(".scorecard>h3").text(totalScore);
 
 	//cycle through
-	// nextSlide(this);
 	$(this).parents(".carousel-item").animate({left:'-50%'},500);
 	//move first question onscreen
 	$(this).parents(".carousel-item").prevAll().last().animate({left:'50%'},500);
@@ -83,28 +82,6 @@ var Question = {
 	}
 }
 
-function loadQuestions() {
-
-var firstQ = Object.create(Question);
-var secondQ = Object.create(Question);
-var thirdQ = Object.create(Question);
-
-firstQ.questionText = "vitus labrusca";
-firstQ.answerOptions= ["yellow","vitus labrusca","blue"];
-firstQ.correctAnswer= firstQ.answerOptions[1];
-secondQ.questionText = "apple";
-secondQ.answerOptions= ["green","purple","blue","black"];
-secondQ.correctAnswer= "green";
-thirdQ.questionText = "the third question";
-thirdQ.answerOptions= ["ta-da"];
-
-
-
-quiz.push(firstQ);
-quiz.push(secondQ);
-quiz.push(thirdQ);
-
-}
 
 function drawQuiz() {
 
@@ -134,5 +111,46 @@ function nextSlide(clicked){
 	$(clicked).parents(".carousel-item").animate({left:'-50%'},500);
 	//move first question onscreen
 	$(clicked).parents(".carousel-item").next().animate({left:'50%'},500);
+
+}
+
+function loadQuestions() {
+
+var firstQ = Object.create(Question);
+firstQ.questionText = "vitus labrusca";
+firstQ.answerOptions= ["banana","grape","pear","peach"];
+firstQ.correctAnswer= firstQ.answerOptions[1];
+quiz.push(firstQ);
+
+var secondQ = Object.create(Question);
+secondQ.questionText = "punica granatum";
+secondQ.answerOptions= ["pomegranate","blueberry","pear","orange"];
+secondQ.correctAnswer= secondQ.answerOptions[0];
+quiz.push(secondQ);
+
+var thirdQ = Object.create(Question);
+thirdQ.questionText = "citrus x limon";
+thirdQ.answerOptions= ["orange","grapefruit","lemon","lime"];
+thirdQ.correctAnswer= thirdQ.answerOptions[2];
+quiz.push(thirdQ);
+
+var fourthQ = Object.create(Question);
+fourthQ.questionText = "prunus domestica";
+fourthQ.answerOptions= ["kiwi","plum","banana","peach"];
+fourthQ.correctAnswer= fourthQ.answerOptions[1];
+quiz.push(fourthQ);
+
+var fifthQ = Object.create(Question);
+fifthQ.questionText = "fragaria x ananassa";
+fifthQ.answerOptions= ["banana","kumquat","watermelon","strawberry"];
+fifthQ.correctAnswer= fifthQ.answerOptions[3];
+quiz.push(fifthQ);
+
+var sixthQ = Object.create(Question);
+sixthQ.questionText = "ficus carica";
+sixthQ.answerOptions= ["fig","kumquat","raspberry","date"];
+sixthQ.correctAnswer= sixthQ.answerOptions[0];
+quiz.push(sixthQ);
+
 
 }
