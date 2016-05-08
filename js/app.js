@@ -16,9 +16,7 @@ drawQuiz();
 //display first question
 $(".intro-start").click(function(){
 	//move intro offscreen
-	$(this).parents(".carousel-item").animate({left:'-50%'},500);
-	//move first question onscreen
-	$(this).parents(".carousel-item").next().animate({left:'50%'},500);
+	nextSlide(this);
 });
 
 //next question
@@ -30,16 +28,19 @@ $("li").click(function(){
 	//if last question, update totalScore scorecard
 	if(whichQ===quiz.length-1) {
 		$(".scorecard>h3").text(totalScore);
-		console.log("finished quiz");
 	}
 	//move question offscreen
-	//?? - Why do i need to use $(this) here and not for this.id??
-	$(this).parents(".carousel-item").animate({left:'-50%'},500);
-	//move next onscreen
-	$(this).parents(".carousel-item").next().animate({left:'50%'},500);
+	$(".carousel-item").each(function(){
+		if($(this).offset().left <0) {
+			$(this).css("left","150%");
+		}
+	});
+	//move to nextslide
+	nextSlide(this);
+
+
 	//increment question counter
 	whichQ++;
-	console.log("ts"+totalScore);
 });
 
 //restart game
@@ -53,8 +54,12 @@ $(".scorecard-restart").click(function(){
 	});
 	$(".scorecard>h3").text(totalScore);
 
-	//rewind
-	$(this).parents(".carousel-item").prevAll().animate({left:'150%'},500);
+	//cycle through
+	// nextSlide(this);
+	$(this).parents(".carousel-item").animate({left:'-50%'},500);
+	//move first question onscreen
+	$(this).parents(".carousel-item").prevAll().last().animate({left:'50%'},500);
+	// $(this).parents(".carousel-item").prevAll().animate({left:'150%'},500);
 
 });
 
@@ -123,4 +128,11 @@ function drawQuiz() {
 		"<h3 class=\"scorecard-score\">0</h3>"+
 		"<button class=\"scorecard-restart\">play again?</button>"+
 		"</section>");
+}
+
+function nextSlide(clicked){
+	$(clicked).parents(".carousel-item").animate({left:'-50%'},500);
+	//move first question onscreen
+	$(clicked).parents(".carousel-item").next().animate({left:'50%'},500);
+
 }
